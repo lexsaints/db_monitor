@@ -82,17 +82,21 @@ python manage.py makemigrations
 
 python manage.py migrate
 
-python manage.py createsuperuser(创建登录用户)
+python manage.py createsuperuser
+根据提示 输入用户名和密码，前端访问时登录使用。
 
 ##### 执行数据库脚本
 
+连接到mysql数据库，执行sql脚本
 @install/initdata.sql
 
 #### 6. 启动
-python manage.py runserver
+
+cd db_monitor目录下
+python manage.py runserver 0.0.0.0:8000 #前端db_monitor_vue项目需要配置改地址和端口
+//启动之后,db_monitor后端即可使用，然后按照db_monitor_vue的前端部署文档，将前端运行起来即可，
 
 celery –A db_monitor worker –l info
-
 celery –A db_monitor beat –l info
 
 #### 7. 前端配置
@@ -134,5 +138,3 @@ grant.sql & table.sql & procedure.sql
 - QQ群 916746047
 
 Copyright © 2019 DB monitor
-
-
